@@ -31,30 +31,17 @@ pip install -r requirements.txt
 
 For this example, I've decided to generate a Q&A assistant to answer questions regarding to Yu-Gi-Oh! Card Game rules, exclusively extracted from the official rulebook in `./data/yugioh_rulebook.pdf`.
 
-I've decided to use Meta's Llama 3.2 with 1B parameters (`meta-llama/llama-3.2-1B-Instruct`) for this task, since it's a small and relatively good for response quality.
+I've decided to use Microsoft's Phi-4 with 3.8B parameters (`microsoft/Phi-4-mini-instruct`) for this task, since it's a small and relatively good for response quality.
 
 ### 2. Preparing Dataset
 
 For this example, I've generated `yugioh_rulebook_qa.json` with Q&A samples from `yugioh_rulebook.pdf` using ChatGPT.
-You can do the same with any other document and any powerful models services such as OpenAI's, Anthropic's or Google's services using the prompt below:
 
-```
-Exclusively based on the attached file content, generate 100 unique and high quality Q&A pairs that explores all the document content details.
-Follow the structure below for the output format:
-[
-    {
-        "question": "...",
-        "answer": "..."
-    },
-    ...
-]
-```
-
-With the Q&A dataset onpen the `./src/_01_prepare_dataset.ipynb` Notebook and follow the instructions to generate a ChatML structured dataset.
+With the Q&A dataset, open the `./src/_01_prepare_dataset.ipynb` Notebook and follow the instructions to generate a ChatML structured dataset.
 
 ### 3. Fine-tuning the model
 
-With ChatML dataset in your hands, you're ready to run the fine-tuning process using LoRA! Open the `./src/_02_finetune_model.ipynb` Notebook and follow the instructions to fine-tune a model, based on Llama 3.2 1B model.
+With ChatML dataset in your hands, you're ready to run the fine-tuning process using LoRA! Open the `./src/_02_finetune_model.ipynb` Notebook and follow the instructions to fine-tune the base model.
 
 This step should generate a new LoRA adapter for the model.
 
