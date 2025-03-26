@@ -1,5 +1,11 @@
+# finetuning
 torch 
 transformers 
 peft 
 datasets
 rouge_score
+
+# data generation
+python-dotenv
+pdf2image
+openai
